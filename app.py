@@ -14,7 +14,7 @@ def get_post(post_id):
     conn.close()
     if post is None:
         abort(404)
-    return post
+    return posts    
 
 app = Flask(__name__)
 
