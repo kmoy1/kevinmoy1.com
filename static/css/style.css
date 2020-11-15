@@ -1,6 +1,14 @@
+@import "{{ site.theme }}";
+
 h1 {
-    border: 2px #eee solid;
-    color: brown;
-    text-align: center;
-    padding: 10px;
-}       
+//   padding: 1em 1.5em;
+  text-align: left;
+}
+
+p {
+  font-size: 15px;
+}
+
+section {
+  width: 600px;
+}

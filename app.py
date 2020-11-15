@@ -3,11 +3,29 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 app.config.from_object(__name__)
 
-
 @app.route('/')
 def welcome():
-    return render_template('form.html')
+    return render_template('base.html')
 
+@app.route('/projects')
+def projects_index():
+    return render_template('projects.html')
+
+@app.route('/notes')
+def notes_index():
+    return render_template('notes.html')
+
+@app.route('/resume')
+def resume_index():
+    return render_template('resume.html')
+
+@app.route('/about')
+def aboutme_index():
+    return render_template('about.html')
+
+@app.route('/calculator')
+def calculator():
+    return render_template('form.html')
 
 @app.route('/result', methods=['POST'])
 def result():
