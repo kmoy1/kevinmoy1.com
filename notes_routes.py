@@ -1,7 +1,9 @@
 from app import app, render_template
 import os
 
-# @app.route('/notes/cs61c')
-# def notes_61c():
-#     return render_template('/notes/notes_index.html', notes_lst = None)
+@app.route('/notes/<subject>')
+def notes_subject_index(subject):
+    notes_lst = []
+    #TODO: Populate notes_lst with valid paths of this notes.
+    return render_template('/notes/notes_index2.html', notes_lst = notes_lst)
 
