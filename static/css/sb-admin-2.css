@@ -555,7 +555,7 @@ pre code {
   width: 100%;
   padding-right: 0.75rem;
   padding-left: 0.75rem;
-  margin-right: auto;
+  margin-right: auto; 
   margin-left: auto;
 }
 
@@ -10328,9 +10328,10 @@ a:focus {
   color: rgba(255, 255, 255, 0.5);
 }
 
+/*When browser window is > 768 pixels wide (standard laptop), apply these rules: */
 @media (min-width: 768px) {
   .sidebar {
-    width: 14rem !important;
+    width: 14rem   !important;
   }
   .sidebar .nav-item .collapse {
     position: relative;

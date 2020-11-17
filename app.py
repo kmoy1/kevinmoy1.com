@@ -4,19 +4,34 @@ import re
 app = Flask(__name__)
 app.config.from_object(__name__)
 
-import test_routes
+#Routes Used
+import proj_routes
+import notes_routes
+import prob_routes
+
 
 @app.route('/')
 def welcome():
-    return render_template('index.html')
+    return render_template('base.html')
 
 @app.route('/projects')
 def projects_index():
-    return render_template('projects.html')
+    return render_template('projects/projects_index.html')
 
 @app.route('/notes')
 def notes_index():
-    return render_template('notes.html')
+    import os
+    sub_lst = []
+    links = []
+    for subject in os.listdir("static/notes"):
+        print(subject)
+        links.append("static/notes/" + subject)
+        sub_lst.append(subject)
+    return render_template('/notes/notes_index.html', len = len(sub_lst), links=links, subjects=sub_lst)
+
+@app.route('/problems')
+def problems_index():
+    return render_template('/problems/problems_index.html')
 
 @app.route('/resume')
 def resume_index():
@@ -25,32 +40,6 @@ def resume_index():
 @app.route('/about')
 def aboutme_index():
     return render_template('about.html')
-
-@app.route('/calculator')
-def calculator():
-    return render_template('form.html')
-
-@app.route('/result', methods=['POST'])
-def result():
-    var_1 = request.form.get("var_1", type=int)
-    var_2 = request.form.get("var_2", type=int)
-    operation = request.form.get("operation")
-    if(operation == 'Addition'):
-        result = var_1 + var_2
-    elif(operation == 'Subtraction'):
-        result = var_1 - var_2
-    elif(operation == 'Multiplication'):
-        result = var_1 * var_2
-    elif(operation == 'Division'):
-        result = var_1 / var_2
-    else:
-        result = 'INVALID CHOICE'
-    entry = result
-    return render_template('result.html', entry=entry)
-
-@app.route('/calc_js')
-def calc_js():
-    return render_template('calc_js.html')
 
 if __name__ == '__main__':
     app.run(threaded=True)

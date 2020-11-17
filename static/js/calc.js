@@ -55,6 +55,7 @@ keys.addEventListener('click', e => {
     }
 
     if (action === 'clear') {
+      display.textContent = 0
       console.log('clear key!')
     }
 

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}
+<h1>Basic Calculator</h1>
+<p>A basic calculator with Javascript enabled.</p> 
+{% endblock %}
+
+{% block content %}
+<body align=center>
+  <head><link rel="stylesheet" href="{{ url_for('static',filename='css/calc_js.css') }}"></head>
+  <div class="container">
+      <div class="calculator">
+        <div class="calculator__display">0</div>
+        <div class="calculator__keys">
+          <button class="key--operator" data-action="add">+</button>
+          <button class="key--operator" data-action="subtract">-</button>
+          <button class="key--operator" data-action="multiply">&times;</button>
+          <button class="key--operator" data-action="divide">÷</button>
+          <!-- TODO: Add more advanced features later: RESIZE GRID DIMENSIONS. -->
+          <button>7</button>
+          <button>8</button>
+          <button>9</button>
+          <button>4</button>
+          <button>5</button>
+          <button>6</button>
+          <button>1</button>
+          <button>2</button>
+          <button>3</button>
+          <button>0</button>
+          <button data-action="decimal">.</button>
+          <button data-action="clear">AC</button>
+          <button class="key--equal" data-action="calculate">=</button>
+        </div>
+      </div>
+  </div>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+  <script src="{{ url_for('static', filename='js/calc.js') }}"></script>
+{% endblock %}
