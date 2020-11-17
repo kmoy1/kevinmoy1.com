@@ -1,11 +1,14 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
+import re
 
 app = Flask(__name__)
 app.config.from_object(__name__)
 
+import test_routes
+
 @app.route('/')
 def welcome():
-    return render_template('base.html')
+    return render_template('index.html')
 
 @app.route('/projects')
 def projects_index():
@@ -44,6 +47,10 @@ def result():
         result = 'INVALID CHOICE'
     entry = result
     return render_template('result.html', entry=entry)
+
+@app.route('/calc_js')
+def calc_js():
+    return render_template('calc_js.html')
 
 if __name__ == '__main__':
     app.run(threaded=True)

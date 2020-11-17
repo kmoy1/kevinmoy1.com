@@ -5,9 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/base_layout.css') }}">
   <style>
   .fakeimg {
     height: 200px;
@@ -39,11 +37,12 @@
     </ul>
   </div>  
 </nav>
-<div class="jumbotron text-center" style="margin-bottom:0">
-  {% block title %}
-  <h1>Kevin Moy</h1>
-  <p>Hi! I'm a UC Berkeley Computer Science and Data Science student.</p> 
-  {% endblock %}
+
+<div class="jumbotron text-center">
+{% block title %}
+<h1>Kevin Moy</h1>
+<p>Hi! I'm a UC Berkeley Computer Science and Data Science student.</p> 
+{% endblock %}
 </div>
 
 <!--TODO: Add Boxes for Navigation below (redundant to navbar)-->
@@ -51,6 +50,8 @@
 Test Shit
 {% endblock %}
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
