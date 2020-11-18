@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}
+<h1>Polynomial Equation Solver</h1>
+<p>A polynomial equation solver, accurate up to five decimal places. Please enter below:</p> 
+{% endblock %}
+
+{% block content %}
+<h3><p style="text-align:center;">Please enter an equation in form ax^i + bx^i-1 + ... + cx + d.
+    <!-- TODO: Incorporate LaTEX into HTML-->
+    <p>
+        When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
+        \[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\]
+    </p>
+    </p></h3>
+
+<div class="form-group">
+    <label for="exampleInputEmail1">Equation:</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter equation">
+</div>
+{% endblock %}
+
+{% block extrajs %}
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js">
+</script>
+{% endblock %}

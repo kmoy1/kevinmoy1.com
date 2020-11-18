@@ -1,17 +1,16 @@
 {% extends "base.html" %}
 {% block title %}
-<h1>Notes</h1>
-<p>Below are notes I've taken for various classes.</p> 
+<h1>{{subject}} Notes</h1>
+<p>Notes for {{subject}}.</p> 
 {% endblock %}
 
 {% block content %}
-<p>NOTE: This page is still under construction!</p>
-{%for i in range(len)%} 
+{%for i in range(N)%} 
 <div class="row">
     <div class="col-lg-12" style="width:14px;">
         <div class="card shadow">
             <div class="card-body">
-                  <h3><a href="/">{{subjects[i]}}</a></h3>
+                  <h3><a href="{{url_for('static', filename='notes/' + subject + '/' + notes_lst[i])}}">{{notes_lst[i]}}</a></h3>
             </div>
         </div>
     </div>

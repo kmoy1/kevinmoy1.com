@@ -23,11 +23,12 @@ def notes_index():
     import os
     sub_lst = []
     links = []
+    routes = []
     for subject in os.listdir("static/notes"):
-        print(subject)
         links.append("static/notes/" + subject)
         sub_lst.append(subject)
-    return render_template('/notes/notes_index.html', len = len(sub_lst), links=links, subjects=sub_lst)
+        routes.append("/notes/" + subject)
+    return render_template('/notes/notes_index.html', len = len(sub_lst), links=links, subjects=sub_lst, routes=routes)
 
 @app.route('/problems')
 def problems_index():

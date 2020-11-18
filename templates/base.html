@@ -11,6 +11,7 @@
     <title>Kevin Moy</title>
 
     <!-- Custom fonts for this template-->
+    {% block css %}
     <link href="/static/vendor/fontawesome-free/css/all.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -18,6 +19,10 @@
 
     <!-- Custom styles for this template-->
     <link href="/static/css/sb-admin-2.css" rel="stylesheet">
+    {% endblock %}
+
+    {% block extracss %}
+    {% endblock %}
 
 </head>
 
@@ -191,7 +196,8 @@
             </div>
         </div>
     </div>
-
+    
+    {% block js %}
     <!-- Bootstrap core JavaScript-->
     <script src="/static/vendor/jquery/jquery.min.js"></script>
     <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -201,14 +207,13 @@
 
     <!-- Custom scripts for all pages-->
     <script src="/static/js/sb-admin-2.min.js"></script>
+    <!-- For math rendering. -->
+    <script src="https://fred-wang.github.io/mathml.css/mspace.js"></script>
+    {% endblock %}
 
-    <!-- Page level plugins -->
-    <script src="/static/vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="/static/js/demo/chart-area-demo.js"></script>
-    <script src="/static/js/demo/chart-pie-demo.js"></script>
-
+    {% block extrajs %}
+    {% endblock %}
+    
 </body>
 
 </html>

@@ -4,6 +4,8 @@ import os
 @app.route('/notes/<subject>')
 def notes_subject_index(subject):
     notes_lst = []
-    #TODO: Populate notes_lst with valid paths of this notes.
-    return render_template('/notes/notes_index2.html', notes_lst = notes_lst)
+    for note in os.listdir("static/notes/" + subject):
+        notes_lst.append(note)
+    notes_lst.sort()
+    return render_template('/notes/notes_index2.html', subject=subject, N=len(notes_lst), notes_lst = notes_lst)
 
