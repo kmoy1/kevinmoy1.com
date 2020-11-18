@@ -1,7 +1,4 @@
 from app import app, render_template, request
-from flask_wtf import Form
-from wtforms import TextField, SubmitField, TextAreaField
-from wtforms.validators import Length, Email, Required
 
 # class Config(object):
 #     SECRET_KEY = '78w0o5tuuGex5Ktk8VvVDF9Pw3jv1MVE'

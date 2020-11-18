@@ -1,14 +1,11 @@
 from flask import Flask, render_template, request, jsonify
 import re
-from flask_bootstrap import Bootstrap
 
 class Config(object):
     SECRET_KEY = '78w0o5tuuGex5Ktk8VvVDF9Pw3jv1MVE'
 
 app = Flask(__name__)
 app.config.from_object(Config)
-
-Bootstrap(app)
 
 #Routes Used
 import proj_routes
