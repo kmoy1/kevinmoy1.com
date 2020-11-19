@@ -12,7 +12,6 @@ import proj_routes
 import notes_routes
 import prob_routes
 
-
 @app.route('/')
 def welcome():
     return render_template('base.html')

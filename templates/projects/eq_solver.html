@@ -12,13 +12,29 @@
 
 For example, to solve \(x^2 - 6x + 5\), type x^2 - 6x + 5.
 
-
-<form>
+<!-- Input Form -->
+<form method="POST">
     <div class="form-group">
-        <input type="text" class="form-control" placeholder="Enter equation">
+        <input type="text" name="eq" class="form-control" placeholder="Enter equation">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+<!-- Zeros + Graph -->
+{% if submit %}
+<div class="row">
+    <!-- Zeros -->
+    <div class="col-xl-5">
+       <p>Zeros:</p> 
+       x = 0
+    </div>
+    <!-- Graph -->
+    <div class="col-xl-5">
+        <div id="calculator" style="width: 700px; height: 300px;"></div>
+    </div>
+</div>
+
+{% endif %}
 
 {% endblock %}
 
@@ -26,5 +42,11 @@ For example, to solve \(x^2 - 6x + 5\), type x^2 - 6x + 5.
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js">
+</script>
+<script src="https://www.desmos.com/api/v1.5/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+<script>
+    var elt = document.getElementById('calculator');
+    var calculator = Desmos.GraphingCalculator(elt);
+    calculator.setExpression({id:'graph1', latex:'y=x^2'});
 </script>
 {% endblock %}
