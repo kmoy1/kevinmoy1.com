@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='kevinmoy1.com',
+    name='kevinmoy.org',
     version='1.0',
     long_description=__doc__,
     include_package_data=True,

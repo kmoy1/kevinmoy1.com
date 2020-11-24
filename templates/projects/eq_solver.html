@@ -13,8 +13,9 @@
 For example, to solve \(x^2 - 6x + 5\), type x^2 - 6x + 5.
 
 <!-- Input Form -->
-<form method="POST">
+<form>
     <div class="form-group">
+        <!-- Use name to reference input data AFTER form submission -->
         <input type="text" name="eq" class="form-control" placeholder="Enter equation">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
@@ -24,13 +25,29 @@ For example, to solve \(x^2 - 6x + 5\), type x^2 - 6x + 5.
 {% if submit %}
 <div class="row">
     <!-- Zeros -->
-    <div class="col-xl-5">
-       <p>Zeros:</p> 
-       x = 0
+    <div class="col-xl-6">
+        <p><h3>Your equation: y = \({{eq}}\)</h3></p> 
+        <p><h3>Zeros:</h3></p> 
+        {%if not zeros%}
+            <p><h4>This equation has NO ZEROS. You can verify this with the graph on the right.</h4></p>
+            <p>However, your equation actually has <b>complex zeros:</b></p>
+            {%for zero in complex_sols%}
+            <li>
+                x = {{zero}}
+            </li>
+            {%endfor%} 
+        {%else %}
+            {%for zero in zeros%}
+                <li>
+                    x = {{zero}}
+                </li>
+            {%endfor%} 
+            Check these solutions with the graph on the right! They are the points where the graph intersects the x-axis.
+        {% endif %}
     </div>
     <!-- Graph -->
-    <div class="col-xl-5">
-        <div id="calculator" style="width: 700px; height: 300px;"></div>
+    <div class="col-xl-6">
+        <div id="calculator" style="width: 550px; height: 300px;"></div>
     </div>
 </div>
 
@@ -44,9 +61,11 @@ For example, to solve \(x^2 - 6x + 5\), type x^2 - 6x + 5.
         src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js">
 </script>
 <script src="https://www.desmos.com/api/v1.5/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+<!-- Populate -->
 <script>
     var elt = document.getElementById('calculator');
-    var calculator = Desmos.GraphingCalculator(elt);
-    calculator.setExpression({id:'graph1', latex:'y=x^2'});
+    var calculator = Desmos.GraphingCalculator(elt, {expressions: false});
+    var eq = 'y=' + '{{eq}}';
+    calculator.setExpression({id:'graph1', latex:eq});
 </script>
 {% endblock %}
