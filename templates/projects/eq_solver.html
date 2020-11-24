@@ -31,11 +31,13 @@ For example, to solve \(x^2 - 6x + 5\), type x^2 - 6x + 5.
         {%if not zeros%}
             <p><h4>This equation has NO ZEROS. You can verify this with the graph on the right.</h4></p>
             <p>However, your equation actually has <b>complex zeros:</b></p>
-            {%for zero in complex_sols%}
-            <li>
-                x = {{zero}}
-            </li>
-            {%endfor%} 
+            {%if complex_sols%}
+                {%for zero in complex_sols%}
+                <li>
+                    x = {{zero}}
+                </li>
+                {%endfor%} 
+            {%endif%}
         {%else %}
             {%for zero in zeros%}
                 <li>
