@@ -2,15 +2,15 @@
 
 {% block title %}
 <h1>Polynomial Equation Solver</h1>
-<p>A polynomial equation solver, accurate up to five decimal places. Please enter below:</p> 
+<p>A polynomial equation solver I designed. Credits to Desmos for the graphing utility.</p> 
 {% endblock %}
 
 {% block content %}
 <h3><p style="text-align:center;">
-    Please enter an equation in form ax^i + bx^i-1 + ... + cx + d.
+    Please enter a polynomial equation.
 </p></h3>
 
-For example, to solve \(x^2 - 6x + 5\), type x^2 - 6x + 5.
+For example, to solve \(x^2 - 6x + 5\), type x^2 - 6x + 5. To solve \( (x-3)^3 + 2x\), type (x-3)^3 + 2x.
 
 <!-- Input Form -->
 <form>
@@ -27,11 +27,10 @@ For example, to solve \(x^2 - 6x + 5\), type x^2 - 6x + 5.
     <!-- Zeros -->
     <div class="col-xl-6">
         <p><h3>Your equation: y = \({{eq}}\)</h3></p> 
-        <p><h3>Zeros:</h3></p> 
+        <p><h5>Your equation has {{zeros|length}} real zeros. You can verify this with the graph on the right.</h5></p> 
         {%if not zeros%}
-            <p><h4>This equation has NO ZEROS. You can verify this with the graph on the right.</h4></p>
             {%if complex_sols%}
-            <p>However, your equation actually has <b>complex zeros:</b></p>
+            <p>However, your equation actually has <b>{{complex_sols|length}} complex zeros:</b></p>
                 {%for zero in complex_sols%}
                 <li>
                     x = {{zero}}

@@ -18,8 +18,8 @@ def eq_solver():
     else:
         sympy_eq_str = eq_str.replace('^', '**')
         expr = parse_expr(sympy_eq_str, transformations=(standard_transformations + (implicit_multiplication_application,)))
-        latex_str = latex(expr)
+        # latex_str = latex(expr)
         sols = list(solveset(expr, Symbol('x')))
         complex_sols = [complex(sol) for sol in sols if not sol.is_real]
         sols = [float(sol) for sol in sols if sol.is_real]
-        return render_template('/projects/eq_solver.html', zeros = sols, complex_sols = complex_sols, eq = latex_str, submit="Yes")
+        return render_template('/projects/eq_solver.html', zeros = sols, complex_sols = complex_sols, eq = eq_str, submit="Yes")
