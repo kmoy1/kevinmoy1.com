@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 
+{% block extracss %}
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"> -->
+<link rel="stylesheet" href="/static/vendor/formvalidation/dist/css/formValidation.min.css">
+{% endblock %}
+
 {% block title %}
 <h1>Polynomial Equation Solver</h1>
 <p>A polynomial equation solver I designed. Credits to Desmos for the graphing utility.</p> 
@@ -7,13 +12,13 @@
 
 {% block content %}
 <h3><p style="text-align:center;">
-    Please enter a polynomial equation.
+    Please enter a polynomial equation in terms of \( x \).
 </p></h3>
 
 For example, to solve \(x^2 - 6x + 5\), type x^2 - 6x + 5. To solve \( (x-3)^3 + 2x\), type (x-3)^3 + 2x.
 
 <!-- Input Form -->
-<form>
+<form id="eq_form">
     <div class="form-group">
         <!-- Use name to reference input data AFTER form submission -->
         <input type="text" name="eq" class="form-control" placeholder="Enter equation">
@@ -68,5 +73,41 @@ For example, to solve \(x^2 - 6x + 5\), type x^2 - 6x + 5. To solve \( (x-3)^3 +
     var calculator = Desmos.GraphingCalculator(elt, {expressions: false});
     var eq = 'y=' + '{{eq}}';
     calculator.setExpression({id:'graph1', latex:eq});
+</script>
+<script src="/static/vendor/formvalidation/dist/js/FormValidation.min.js"></script>
+<script src="/static/vendor/formvalidation/dist/js/plugins/Bootstrap.min.js"></script>
+<!-- Input Validation -->
+<script>
+document.addEventListener('DOMContentLoaded', function(e) {
+    const form = document.getElementById('eq_form');
+    FormValidation.formValidation(form, {
+        fields: {
+            eq: {
+                validators: {
+                    notEmpty: {
+                        message: 'Please enter an equation.'
+                    },
+                    callback: {
+                        message: 'Invalid equation: please only use x and standard arithmetic operations.',
+                        callback: function(input) {
+                            return /^[x\d\+\-\^\/\s\(\)]*$/.test(input.value);
+                        }
+                    }
+                }
+            },
+        },
+        plugins: {
+            trigger: new FormValidation.plugins.Trigger(),
+            bootstrap: new FormValidation.plugins.Bootstrap(),
+			submitButton: new FormValidation.plugins.SubmitButton(),
+			defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
+            icon: new FormValidation.plugins.Icon({
+                valid: 'fa fa-check',
+                invalid: 'fa fa-times',
+                validating: 'fa fa-refresh',
+            }),
+        },
+    });
+});
 </script>
 {% endblock %}

@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+/* Styles */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Open Sans";
+  /* font-size: 14px; */
+}
+
+.container {
+  width: 500px;
+  margin: 25px auto;
+}
+
+.title {
+  margin-bottom: 1rem;
+}
+
+form.error {
+  color: #ff0000;
+}
+
+.article-reference {
+  margin-top: 15px;
+}
+.article-reference a {
+  color: #e67e22;
+}

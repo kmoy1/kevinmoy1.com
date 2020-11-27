@@ -11,6 +11,7 @@ app.config.from_object(Config)
 import proj_routes
 import notes_routes
 import prob_routes
+import test_routes
 
 @app.route('/')
 def welcome():
