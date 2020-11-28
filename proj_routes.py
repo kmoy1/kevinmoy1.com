@@ -10,6 +10,10 @@ from sympy import Symbol, solveset, degree, latex, simplify
 def calc_js():
     return render_template('/projects/calc/calc_js.html')
 
+@app.route('/projects/py_interpreter')
+def py_interpreter():
+    return render_template('/projects/py_interpreter.html')
+
 @app.route('/projects/eq_solver')
 def eq_solver():
     #Generate solutions here. 
