@@ -1,0 +1,1 @@
+What exactly is two-phase commit (2PC)? 
