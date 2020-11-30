@@ -1,8 +1,4 @@
 from flask_misaka import Misaka, markdown
-from pygments import highlight
-from pygments.formatters import HtmlFormatter, ClassNotFound
-from pygments.lexers import get_lexer_by_name
-
 from flask import Flask, render_template, request
 # from flaskext.markdown import Markdown
 from app import app, render_template, request
