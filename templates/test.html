@@ -1,1 +1,11 @@
-test
+{% extends "article.html" %}
+
+{% block extracss %}
+<link rel="stylesheet" href="/static/highlight/styles/monokai-sublime.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+{% endblock %}
+
+{% block article %}
+    {{ md_file | markdown }}        
+{% endblock %}
