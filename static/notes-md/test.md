@@ -22,9 +22,6 @@ $$\sum_{x=1}^{10}x^2$$
 from flask import Flask, render_template, request, jsonify
 import re
 
-class Config(object):
-    SECRET_KEY = '78w0o5tuuGex5Ktk8VvVDF9Pw3jv1MVE'
-
 app = Flask(__name__)
 app.config.from_object(Config)
 x = 1
@@ -32,4 +29,4 @@ y = 2
 x, y = y, x
 ```
 
-
+ 
