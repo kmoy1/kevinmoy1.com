@@ -1,11 +1,52 @@
 from app import app, render_template
+from flask import redirect, url_for
 import os
+from flask_misaka import Misaka, markdown
+from flask import Flask, render_template, request
+Misaka(app)
 
-@app.route('/notes/<subject>')
-def notes_subject_index(subject):
+# Note index L2: By subject (LATEX)
+@app.route('/notes/notes-lt')
+def latexnotes_subject_index():
+    sub_lst = []
+    routes = []
+    for subject in os.listdir("static/notes"):
+        sub_lst.append(subject)
+        routes.append("/notes/notes-lt/" + subject)
+    return render_template('/notes/notes_subject_index.html', len = len(sub_lst), subjects=sub_lst, routes=routes)
+
+#Note index L2: By subject (MARKDOWN)
+@app.route('/notes/notes-md')
+def mdnotes_subject_index():
+    sub_lst = []
+    routes = []
+    for subject in os.listdir("static/notes-md"):
+        sub_lst.append(subject)
+        routes.append("/notes/notes-md/" + subject)
+    return render_template('/notes/notes_subject_index.html', len = len(sub_lst), subjects=sub_lst, routes=routes)
+
+#Note index L3: By note (given subject) (LATEX)
+@app.route('/notes/notes-lt/<subject>')
+def latexnotes_note_index(subject):
     notes_lst = []
     for note in os.listdir("static/notes/" + subject):
         notes_lst.append(note)
     notes_lst.sort()
-    return render_template('/notes/notes_index2.html', subject=subject, N=len(notes_lst), notes_lst = notes_lst)
+    return render_template('/notes/notes_note_index.html', subject=subject, N=len(notes_lst), notes_lst = notes_lst, latex="True")
+
+#Note index L3: By note (given subject) (MARKDOWN)
+@app.route('/notes/notes-md/<path:path>')
+def md_indexer(path):
+    notes_lst = []
+    if os.path.isdir("static/notes-md/" + path):#Path = directory.
+        for note in os.listdir("static/notes-md/" + path):
+            notes_lst.append(note)
+        notes_lst.sort()
+        return render_template('/notes/notes_note_index.html', subject=path, N=len(notes_lst), notes_lst = notes_lst)
+    else: #Path
+        filename = "static/notes-md/" + path
+        md_file = open(filename, "r").read()
+        return render_template('test.html', md_file = markdown(md_file, fenced_code=True, math=True, math_explicit=True))
+
+
 

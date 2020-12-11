@@ -1,0 +1,26 @@
+<!-- The first level indexes the two types of notes: Latex or MarkDown. -->
+{% extends "base.html" %}
+{% block title %}
+<h1>Notes</h1>
+<p>Select either Latex (downloadable) or in-site Markdown notes below.</p> 
+{% endblock %}
+
+{% block content %}
+<p>NOTE: This page is still under construction!</p>
+<div class="row">
+    <div class="col-sm-6" style="width:14px;">
+        <div class="card shadow">
+            <div class="card-body">
+                  <h3><a href="{{url_for('latexnotes_subject_index')}}">Latex Notes</a></h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6" style="width:14px;">
+        <div class="card shadow">
+            <div class="card-body">
+                  <h3><a href="{{url_for('mdnotes_subject_index')}}">Markdown Notes</a></h3>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

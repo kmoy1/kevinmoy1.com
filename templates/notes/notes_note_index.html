@@ -1,0 +1,24 @@
+<!-- Indexes notes given subject. It is imperative that the correct absolute path is given for each note. -->
+{% extends "base.html" %}
+{% block title %}
+<h1>{{subject}} Notes</h1>
+<p>Notes for {{subject}}.</p> 
+{% endblock %}
+
+{% block content %}
+{%for i in range(N)%} 
+<div class="row">
+    <div class="col-sm-12" style="width:14px;">
+        <div class="card shadow">
+            <div class="card-body">
+                {% if latex%}
+                  <h3><a href="{{url_for('static', filename='notes/' + subject + '/' + notes_lst[i])}}">{{notes_lst[i].replace('.md', '')}}</a></h3>
+                {% else %}
+                  <h3><a href="{{url_for('md_indexer', path=subject + '/' + notes_lst[i])}}">{{notes_lst[i].replace('.md', '')}}</a></h3>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{%endfor%} 
+{% endblock %}

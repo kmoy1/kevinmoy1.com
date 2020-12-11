@@ -12,6 +12,7 @@ import proj_routes
 import notes_routes
 import prob_routes
 import test_routes
+# from routes import *
 
 @app.route('/')
 def welcome():
@@ -23,15 +24,7 @@ def projects_index():
 
 @app.route('/notes')
 def notes_index():
-    import os
-    sub_lst = []
-    links = []
-    routes = []
-    for subject in os.listdir("static/notes"):
-        links.append("static/notes/" + subject)
-        sub_lst.append(subject)
-        routes.append("/notes/" + subject)
-    return render_template('/notes/notes_index.html', len = len(sub_lst), links=links, subjects=sub_lst, routes=routes)
+    return render_template('/notes/note_types.html')
 
 @app.route('/problems')
 def problems_index():
