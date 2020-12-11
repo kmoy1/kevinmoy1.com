@@ -1,2 +1,2 @@
-# kevinmoy1.com
-Code for my website. 
+# kevinmoy.org
+Code for my website, using a Flask framework. 
