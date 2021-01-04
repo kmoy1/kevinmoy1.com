@@ -63,7 +63,7 @@ We then go into iteration, and split up each iteration into two steps, **expecta
 - Expectation: calculate $\gamma_t(j)$ and $\xi_t(i,j)$ for all possible hidden states $i,j$ and all timesteps $t$. 
 - Maximization: from the two expectation terms, we calculate our estimations of $A$ and $E$ as $\hat{a}_{ij}$ and $e_j(x_k)$ 
 
-We iteratively run through these steps until our estimations converge, and these become our "official" estimates!
+  We iteratively run through these steps until our estimations converge. By "converge" I mean the change in likelihood probability $P(X|\Theta)$  after an iteration goes under a certain threshold: these become our "official" estimates.
 
 ## Pseudocode
 

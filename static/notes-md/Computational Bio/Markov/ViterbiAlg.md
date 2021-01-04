@@ -16,7 +16,7 @@ Formally, each cell expresses probability
 
 $$v_t(j) = \max_{q_{1:t-1}}P(q_{1:t-1},x_{1:t}, q_t=j|\Theta)$$
 
-Our cell value is thus computed by **recursively taking the most probable path to the cell**. We represent "most probable path" as the maximum over *all possible hidden state sequences* $q_{1:t-1}$. 
+Our cell value is thus computed by **recursively taking the most probable path to the cell**. We represent "most probable path" as the maximum probability of *all possible hidden state sequences* $q_{1:t-1}$. 
 
 Again, this sounds like a job for DP! Given that we computed the probability of being in every state at time $t-1$ ($v_{t-1}(j)$ for every $j\in S$), we can compute the Viterbi probability by simply calculating the most probable extension of the path that leads to the current cell. 
 
