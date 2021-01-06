@@ -7,7 +7,7 @@ from sympy import Symbol, solveset, degree, latex, simplify
 
 @app.route('/projects/calc_js')
 def calc_js():
-    return render_template('/projects/calc/calc_js.html')
+    return render_template('/projects/calc_js.html')
 
 @app.route('/projects/py_interpreter')
 def py_interpreter():
