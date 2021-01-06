@@ -20,7 +20,7 @@ def welcome():
 
 @app.route('/projects')
 def projects_index():
-    return render_template('projects/projects_index.html')
+    return render_template('/projects/projects_index.html')
 
 @app.route('/notes')
 def notes_index():
