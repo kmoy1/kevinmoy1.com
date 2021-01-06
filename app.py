@@ -6,6 +6,7 @@ class Config(object):
 
 app = Flask(__name__)
 app.config.from_object(Config)
+app.url_map.strict_slashes = False
 
 #Routes Used
 import proj_routes
@@ -20,7 +21,7 @@ def welcome():
 
 @app.route('/projects')
 def projects_index():
-    return render_template('projects/projects_index.html')
+    return render_template('/projects/projects_index.html')
 
 @app.route('/notes')
 def notes_index():
