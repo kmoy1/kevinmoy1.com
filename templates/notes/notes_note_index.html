@@ -12,7 +12,7 @@
         <div class="card shadow">
             <div class="card-body">
                 {% if latex%}
-                  <h3><a href="{{url_for('static', filename='notes/' + subject + '/' + notes_lst[i])}}">{{notes_lst[i].replace('.md', '')}}</a></h3>
+                  <h3><a href="{{url_for('static', filename='notes-lt/' + subject + '/' + note_filenames[i])}}">{{notes_lst[i]}}</a></h3>
                 {% else %}
                   <h3><a href="{{url_for('md_indexer', path=subject + '/' + notes_lst[i])}}">{{notes_lst[i].replace('.md', '')}}</a></h3>
                 {% endif %}
@@ -21,4 +21,4 @@
     </div>
 </div>
 {%endfor%} 
-{% endblock %}
+{% endblock %}  
