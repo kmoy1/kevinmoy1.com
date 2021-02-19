@@ -24,24 +24,24 @@ def latexnotes_subject_index():
 @app.route('/notes/notes-md')
 def mdnotes_subject_index():
     sub_lst = []
-    routes = []
+    static_paths = []
     for subject in os.listdir("static/notes-md"):
         sub_lst.append(subject)
-        routes.append("/notes/notes-md/" + subject)
-    return render_template('/notes/notes_subject_index.html', len = len(sub_lst), subjects=sub_lst, routes=routes)
+        static_paths.append("/notes/notes-md/" + subject)
+    return render_template('/notes/notes_subject_index.html', len = len(sub_lst), subjects=sub_lst, routes=static_paths)
 
 #Note index L3: By note (given subject) (LATEX)
 #Note filename MUST be in format Note_{note number}-_{title}
 @app.route('/notes/notes-lt/<subject>')
 def latexnotes_note_index(subject):
     note_names = []
-    note_filenames = []
+    note_filepaths = []
     notes_lst = os.listdir("static/notes-lt/" + subject)
     notes_lst.sort(key = lambda x: float(x.split('_')[1].replace('-','')))
     for note in notes_lst:
         note_names.append(filenameFormat(note))
-        note_filenames.append(note)
-    return render_template('/notes/notes_note_index.html', subject=subject, N=len(note_names), notes_lst = note_names, note_filenames = note_filenames, latex="True")
+        note_filepaths.append(note)
+    return render_template('/notes/notes_note_index.html', subject=subject, N=len(note_names), notes_lst = note_names, note_filenames = note_filepaths, latex="True")
 
 #Note index L3: By note (given subject) (MARKDOWN)
 @app.route('/notes/notes-md/<path:path>')
