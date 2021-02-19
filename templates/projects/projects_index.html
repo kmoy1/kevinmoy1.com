@@ -5,7 +5,13 @@
 {% endblock %}
 
 {% block content %}
-<div class="row">
+<style>
+    .row-spaced{
+        margin-bottom: 30px
+    }
+</style>
+
+<div class="row row-spaced">
     <div class="col-lg-4">
         <div class="card shadow">
             <div class="card-body">
@@ -29,6 +35,35 @@
             <div class="card-body">
                   <h3><a href="{{url_for('py_interpreter')}}">KMPy</a></h3>
                   <p>A Bare-bones Python compiler + editor.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-4">
+        <div class="card shadow">
+            <div class="card-body">
+                  <h3><a href="{{url_for('py_interpreter')}}">ChessDB Remastered</a></h3>
+                  <p>A chess-playing application I built via JavaFX. Complete with game saving, move commentary, and analysis engine.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card shadow">
+            <div class="card-body">
+                  <h3><a href="https://github.com/kmoy1/CollegeStatScraper">NCAA Bball Stat Scraper</a></h3>
+                  <p>College/International/G-league/HS statistic scraper for every drafted player in the last 10 NBA drafts.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card shadow">
+            <div class="card-body">
+                  <h3><a href="https://github.com/kmoy1/CheapestNetwork">Cheapest Network</a></h3>
+                  <p>Algorithm I built to find the minimum dominating set of a graph G that minimizes average pairwise distance.</p>
             </div>
         </div>
     </div>
