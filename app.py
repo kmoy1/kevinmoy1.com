@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect, url_for
 import re
 
 class Config(object):
@@ -29,7 +29,7 @@ def notes_index():
 
 @app.route('/problems')
 def problems_index():
-    return render_template('/problems/problems_index.html')
+    return redirect(url_for('problems_root_index'))
 
 @app.route('/resume')
 def resume_index():
