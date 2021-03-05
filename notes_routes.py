@@ -46,11 +46,12 @@ def latexnotes_note_index(subject):
 #Note index L3: By note (given subject) (MARKDOWN)
 @app.route('/notes/notes-md/<path:path>')
 def md_indexer(path):
-    problems_lst = []
-    if os.path.isdir("static/problems/" + path):
-        for note in os.listdir("static/problems/" + path):
-            problems_lst.append(note)
-        return render_template('/problems/problems_index.html', subject=path, N=len(problems_lst), problems_lst = problems_lst)
+    notes_lst = []
+    if os.path.isdir("static/notes-md/" + path):#Path = directory.
+        for note in os.listdir("static/notes-md/" + path + "/"):
+            notes_lst.append(note)
+        # notes_lst.sort()
+        return render_template('/notes/notes_note_index.html', subject=path, N=len(notes_lst), notes_lst = notes_lst)
     else: #Path
         filename = "static/notes-md/" + path
         md_file = open(filename, "r").read()

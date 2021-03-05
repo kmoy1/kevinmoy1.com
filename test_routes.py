@@ -10,3 +10,6 @@ def test():
    md_file = open("static/notes-md/test.md", "r").read()
    return render_template('test.html', md_file = markdown(md_file, fenced_code=True, math=True, math_explicit=True))
 
+@app.route('/mcq-test')
+def mcq_test():
+   return render_template('mcq.html')
