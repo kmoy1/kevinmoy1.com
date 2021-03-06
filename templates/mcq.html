@@ -3,6 +3,35 @@
 <h1>MCQ Test</h1>
 {% endblock %}
 
-{% block content %}
+{% block extracss %}
+<link rel="stylesheet" href="/static/css/mcq.css">
+{% endblock %}
 
+{% block content %}
+<form>
+    <h1>Test Question</h1>
+    <p>How many ways are there to kill yourself?</p>
+    <label class="container">
+        1
+        <input type="radio" checked="checked" name="radio">
+        <span class="checkmark">A</span>
+    </label>
+    <label class="container">
+        2
+        <input type="radio" name="radio">
+        <span class="checkmark">B</span>
+    </label>
+    <label class="container">
+        3
+        <input type="radio" name="radio">
+        <span class="checkmark">C</span>
+    </label>
+    <label class="container">
+        A Billion
+        <input type="radio" name="radio">
+        <span class="checkmark">D</span>
+    </label>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+    
 {% endblock %}
